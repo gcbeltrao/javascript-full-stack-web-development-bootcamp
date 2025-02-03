@@ -1,7 +1,3 @@
-Com base no conteúdo do arquivo enviado, segue o **README.md** adaptado para o curso de JavaScript ministrado pela Angela Yu:
-
----
-
 # Curso Completo de JavaScript - Bootcamp
 
 Este repositório contém os projetos desenvolvidos durante o **Complete JavaScript Bootcamp**, ministrado pela **Dr. Angela Yu** na Udemy. O curso oferece uma abordagem prática para aprender JavaScript, cobrindo desde os fundamentos da linguagem até o desenvolvimento de projetos completos.
