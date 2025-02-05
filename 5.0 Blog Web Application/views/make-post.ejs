@@ -1,0 +1,110 @@
+<%- include("partials/header.ejs") %>
+
+<!-- Page Header -->
+<header
+  class="masthead"
+  style="background-image: url('/assets/img/edit-bg.jpg')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading">
+          <% if (locals.post) { %>
+            <h1>Edit Post</h1>
+          <% } else { %>
+            <h1>New Post</h1>
+          <% } %>
+          <span class="subheading">You're going to make a great blog post!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Form -->
+<main class="mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <% if (locals.post){ %>
+          <form id="contactForm" name="sentMessage" action="/posts/<%=post.id%>/edit" method="post">
+            <div class="form-floating">
+                <input class="form-control" id="name" name="title" type="text"
+                    placeholder="Enter your title..." required value="<%= post.title %>"/>
+                <label for="name">Title</label>
+            </div>
+            <div class="form-floating">
+                <input class="form-control" id="name" name="subtitle" type="text"
+                    placeholder="Enter your subtitle..." required value="<%= post.subtitle %>"/>
+                <label for="name">Subtitle</label>
+            </div>
+            <div class="form-floating">
+                <input class="form-control" id="name" name="author" type="text"
+                    placeholder="Enter your name..." required value="<%= post.author %>"/>
+                <label for="name">Author Name</label>
+            </div>
+            <div class="form-floating">
+              <input class="form-control" id="date" name="date" type="date"
+                  placeholder="Enter publish date..." required value="<%= post.date %>"/>
+              <label for="name">Publish Date</label>
+            </div>
+            <div class="form-floating">
+              <input class="form-control" id="url" name="img_url" type="url"
+                  placeholder="Enter your cover image..." required value="<%= post.img_url %>"/>
+              <label for="name">Cover Image</label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" id="message" name="content"
+                    placeholder="Enter your content here..." required style="height: 12rem" ><%= post.content %></textarea>
+                <label for="message">Content</label>
+            </div>
+            <br />
+            <button id="btn-danger-color" class="btn btn-danger text-uppercase" id="submitButton" type="submit">
+                Editar
+            </button>
+          </form>
+        <% } else { %>
+        <form id="contactForm" name="sentMessage" action="/create" method="post">
+          <div class="form-floating">
+              <input class="form-control" id="name" name="title" type="text"
+                  placeholder="Enter your title..." required />
+              <label for="name">Title</label>
+          </div>
+          <div class="form-floating">
+              <input class="form-control" id="name" name="subtitle" type="text"
+                  placeholder="Enter your subtitle..." required />
+              <label for="name">Subtitle</label>
+          </div>
+          <div class="form-floating">
+              <input class="form-control" id="name" name="author" type="text"
+                  placeholder="Enter your name..." required />
+              <label for="name">Author Name</label>
+          </div>
+          <div class="form-floating">
+            <input class="form-control" id="date" name="date" type="date"
+                placeholder="Enter publish date..." required value="<%= formatedDate %>"/>
+            <label for="name">Publish Date</label>
+          </div>
+          <div class="form-floating">
+            <input class="form-control" id="url" name="img_url" type="url"
+                placeholder="Enter your cover image..." required/>
+            <label for="name">Cover Image</label>
+          </div>
+          <div class="form-floating">
+              <textarea class="form-control" id="message" name="content"
+                  placeholder="Enter your content here..." required style="height: 12rem"></textarea>
+              <label for="message">Content</label>
+          </div>
+          <br />
+          <button id="btn-danger-color" class="btn btn-danger text-uppercase" id="submitButton" type="submit">
+              Enviar
+          </button>
+        </form>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include("partials/footer.ejs") %>
