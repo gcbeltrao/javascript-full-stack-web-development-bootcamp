@@ -1,0 +1,9 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+  <% movieSearch.forEach((movie)=>{ %>
+    <a href="/create/<%=movie.id%>"><p><%= movie.title %>, <%= movie.release_date%></p></a>
+  <% }) %>
+</body>
+
+<%- include("partials/footer.ejs")%>

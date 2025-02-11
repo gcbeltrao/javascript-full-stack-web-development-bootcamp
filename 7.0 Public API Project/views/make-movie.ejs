@@ -1,0 +1,43 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+  <header>
+    <h1 class="heading">New Movie</h1>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form
+          id="contactForm"
+          name="sentMessage"
+          action="/create"
+          method="post"
+        >
+          <div class="form-floating">
+            <input
+              class="form-control"
+              id="title"
+              name="title"
+              type="text"
+              placeholder="Enter your title..."
+              required
+            />
+            <label for="name">Title</label>
+          </div>
+          <br />
+          <button
+            id="btn-danger-color"
+            class="btn btn-danger text-uppercase"
+            id="submitButton"
+            type="submit"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include("partials/footer.ejs")%>

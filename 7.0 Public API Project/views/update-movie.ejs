@@ -1,0 +1,60 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+  <header>
+    <h1 class="heading">Edit Movie</h1>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form
+          id="contactForm"
+          name="sentMessage"
+          action="/movies/<%= movie.id%>"
+          method="post"
+        >
+          
+          
+          <div class="form-floating">
+            <input
+              class="form-control"
+              id="rating"
+              name="rating"
+              type="text"
+              placeholder="Enter your rating..."
+              required
+              value="<%=movie.rating%>"
+            />
+            <label for="review">Rating</label>
+          </div>
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              id="review"
+              name="review"
+              placeholder="Enter your review here..."
+              required
+              style="height: 12rem"
+            >
+              <%=movie.review%></textarea
+            >
+            <label for="review">Review</label>
+          </div>
+          
+          <br />
+          <button
+            id="btn-danger-color"
+            class="btn btn-danger text-uppercase"
+            id="submitButton"
+            type="submit"
+          >
+            Editar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+<%- include("partials/footer.ejs")%>
