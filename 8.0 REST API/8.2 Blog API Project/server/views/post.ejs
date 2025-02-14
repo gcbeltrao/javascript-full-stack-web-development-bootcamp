@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Blog</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1><%= locals.post ? "Edit Post" : "New Post" %></h1>
+
+      <form id="newPostForm" method="post" action=<%= locals.post ? "/edit/" + post.id : "/new" %>>
+        <input type="text" name="title" placeholder="Title" required value="<%=locals.post ? post.title : ""%>">
+        <textarea
+          name="content"
+          placeholder="Content"
+          required
+          rows="10"
+        ><%= locals.post ? post.content : "" %></textarea>
+        <input type="text" name="author" placeholder="Author" required value="<%=locals.post ? post.author : ""%>">
+        <button class="full-width" type="submit">Submit</button>
+      </form>
+
+    </div>
+  </body>
+</html>
