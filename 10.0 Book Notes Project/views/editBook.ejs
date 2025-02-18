@@ -1,0 +1,54 @@
+<%- include("partials/header.ejs") %>
+
+  <body>
+    <header>
+      <h1 class="heading">
+        <a href="/">
+          <%= book.title %>
+        </a>
+
+      </h1>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p><strong>Author:</strong>
+            <%= book.author %>
+          </p>
+          <p><strong>Published Date:</strong>
+            <%= book.date %>
+          </p>
+          <p><strong>Description:</strong>
+            <%= book.description %>
+          </p>
+          <p><strong>Number of Pages:</strong>
+            <%= book.page_count %>
+          </p>
+          <p><strong>Language:</strong>
+            <%= book.language %>
+          </p>
+          <form id="contactForm" name="sentMessage" action="/books/<%= book.book_id%>" method="post">
+            <div class="form-floating">
+              <input class="form-control" id="title" name="rating" type="number" max="10" min="0"
+                placeholder="Enter your rating..."  value="<%=book.rating%>" />
+              <label for="name">Rating</label>
+            </div>
+            <br>
+            <div class="form-floating">
+              <textarea class="form-control" id="review" name="review" placeholder="Enter your review..." 
+                style="height: 12rem"><%=book.review%></textarea>
+              <label for="review">Review</label>
+            </div>
+
+            <br />
+            <button id="btn-danger-color" class="btn btn-danger text-uppercase" id="submitButton" type="submit">
+              Editar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <%- include("partials/footer.ejs")%>

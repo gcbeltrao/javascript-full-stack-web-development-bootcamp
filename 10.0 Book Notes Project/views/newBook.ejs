@@ -1,0 +1,39 @@
+<%- include("partials/header.ejs") %>
+
+  <body>
+    <header>
+      <h1 class="heading"><a href="/">New Book</a></h1>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <form id="contactForm" name="sentMessage" action="/add" method="post">
+            <div class="form-floating">
+              <input class="form-control" id="title" name="title" type="text" placeholder="Enter your title..."
+                required />
+              <label for="name">Title</label>
+            </div>
+            <br>
+            <div class="form-floating">
+              <input class="form-control" id="title" name="rating" type="number" max="10" min="0" placeholder="Enter your rating..."
+                 />
+              <label for="name">Rating</label>
+            </div>
+            <br>
+            <div class="form-floating">
+              <textarea class="form-control" id="review" name="review" placeholder="Enter your review here..." 
+                style="height: 12rem"></textarea>
+              <label for="review">Review</label>
+            </div>
+            <br />
+            <button id="btn-danger-color" class="btn btn-danger text-uppercase" id="submitButton" type="submit">
+              Adicionar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <%- include("partials/footer.ejs")%>

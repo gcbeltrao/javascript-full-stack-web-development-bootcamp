@@ -1,0 +1,48 @@
+<%- include("partials/header.ejs") %>
+
+  <body>
+    <header>
+      <h1 class="heading">My Book Notes</h1>
+      <div class="container text-center add">
+        <a href="/add" class="button">Add Book</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <p class="description">These are all the books I have read.</p>
+      <div class="row">
+        <% books.forEach((book)=> { %>
+          <div class="col-md-3 col-sm-3">
+            <div class="card">
+              <div class="front" style="background-image: url(<%= book.image_url %>)">
+              </div>
+              <div class="back">
+                <div>
+                  <div class="title">
+                    <%= book.title %>
+                      <span class="release_date">(<%= book.date.length> 4 ? book.date.substring(0, 4) : book.date %>)</span>
+                  </div>
+                  <div class="rating">
+                    <label>
+                      <%= book.rating %>
+                    </label>
+                    <i class="fas fa-star star"></i>
+                  </div>
+                  <p class="review">
+                    <%= book.review %>
+                  </p>
+                  <p class="overview">
+                    <%= book.description.length> 300 ? book.description.substring(0, 300) + "..." : book.description %>
+                  </p>
+                  <a href="/books/<%= book.book_id %>" class="button">Update</a>
+                  <a href="/delete/<%= book.book_id %>" class="button">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+  </body>
+
+  <%- include("partials/footer.ejs")%>
